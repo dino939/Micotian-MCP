@@ -20,6 +20,6 @@ public final class FontUtils
     }
     
     static {
-        FontUtils.fr = new CustomFontRenderer(getFontFromTTF(new ResourceLocation("fonts/aboba.ttf"), 20.0f, 0), true, true);
+        FontUtils.fr = new CustomFontRenderer(getFontFromTTF(new ResourceLocation("font/aboba.ttf"), 20.0f, 0), true, true);
     }
 }

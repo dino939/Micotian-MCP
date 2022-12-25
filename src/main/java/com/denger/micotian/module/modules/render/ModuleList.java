@@ -1,5 +1,6 @@
 package com.denger.micotian.module.modules.render;
 
+import com.denger.micotian.utils.CFont.FontUtils;
 import com.denger.micotian.utils.MathUtils;
 import net.minecraft.client.gui.GuiScreen;
 import com.denger.micotian.Micotian;
@@ -14,12 +15,12 @@ import java.util.ArrayList;
 public class ModuleList extends Module {
     public ModuleList() {
         super("ModuleList", Category.Render, 0);
+
     }
 
     @Override
     public void onRender2D() {
         super.onRender2D();
-        int posX = 10;
         int posY = 25;
         java.util.ArrayList<Module> enabledMods = new java.util.ArrayList<>();
 
@@ -36,13 +37,21 @@ public class ModuleList extends Module {
         enabledMods.sort((module1, module2) -> fr.getStringWidth(module2.getName()) - fr.getStringWidth(module1.getName()));
 
 
-        for(Module module : enabledMods){
+       /* for(Module module : enabledMods){
             int pos2 = GuiScreen.width - 7;
-            int pos3 = pos2 - fr.getStringWidth(module.getDisplay());
-            RenderUtil.drawRect((pos3 - 1)*module.anim, posY,  pos2*module.anim,  posY + fr.getHeight() + 3, new Color(30, 30, 30, 150).getRGB());
-            RenderUtils.drawShadowRect((pos3 - 1)*module.anim,  posY, pos2*module.anim,  posY + fr.getHeight() + 3, 7);
-            fr.drawString(module.getDisplay(), pos3*module.anim,  posY + 1.5, Color.white.getRGB());
+            int pos3 = pos2 - FontUtils.fr.getStringWidth(module.getDisplay());
+            RenderUtil.drawRect((pos3 - 1)*module.anim, posY,  pos2*module.anim,  posY + FontUtils.fr.getStringHeight(module.getDisplay()) + 3, new Color(30, 30, 30, 150).getRGB());
+            RenderUtils.drawShadowRect((pos3 - 1)*module.anim,  posY, pos2*module.anim,  posY + FontUtils.fr.getStringHeight(module.getDisplay()) + 3, 7);
+            FontUtils.fr.drawString(module.getDisplay(), pos3*module.anim,  posY + 1.5, Color.white.getRGB());
             posY += fr.getHeight() + 4;
+        }*/
+        for (Module module : enabledMods) {
+            int pos2 = GuiScreen.width - 7;
+            int pos3 = pos2 - FontUtils.fr.getStringWidth(module.getDisplay());
+                RenderUtils.drawCastomLitium((int) ((pos3 - 1)*module.anim),  posY, (int) (pos2*module.anim),  posY + FontUtils.fr.getStringHeight(module.getDisplay()) + 3, 1);
+            FontUtils.fr.drawString(module.getDisplay(), pos3*module.anim,  posY + 1.5, Color.white.getRGB());
+            posY += fr.getHeight() + 7.5;
+
         }
     }
 

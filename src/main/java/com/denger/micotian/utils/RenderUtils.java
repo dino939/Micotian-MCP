@@ -74,7 +74,52 @@ public final class RenderUtils {
         GL11.glScalef(2F, 2F, 2F);
 
     }
+    public static void drawGradientRect(float left, float top, float right, float bottom, int color1, int color2) {
+        float f1 = (float) (color1 >> 24 & 0xFF) / 255.0f;
+        float f2 = (float) (color1 >> 16 & 0xFF) / 255.0f;
+        float f3 = (float) (color1 >> 8 & 0xFF) / 255.0f;
+        float f4 = (float) (color1 & 0xFF) / 255.0f;
+        float f5 = (float) (color2 >> 24 & 0xFF) / 255.0f;
+        float f6 = (float) (color2 >> 16 & 0xFF) / 255.0f;
+        float f7 = (float) (color2 >> 8 & 0xFF) / 255.0f;
+        float f8 = (float) (color2 & 0xFF) / 255.0f;
+        GL11.glEnable(3042);
+        GL11.glDisable(3553);
+        GL11.glBlendFunc(770, 771);
+        GL11.glEnable(2848);
+        GL11.glShadeModel(7425);
+        glPushMatrix();
+        GL11.glBegin(7);
+        GL11.glColor4f(f2, f3, f4, f1);
+        GL11.glVertex2d(left, top);
+        GL11.glVertex2d(left, bottom);
+        GL11.glColor4f(f6, f7, f8, f5);
+        GL11.glVertex2d(right, bottom);
+        GL11.glVertex2d(right, top);
+        GL11.glEnd();
+        glPopMatrix();
+        GL11.glEnable(3553);
+        GL11.glDisable(3042);
+    }
+    public static void drawSmoothGradientRect(float left, float top, float right, float bottom, int color1, int color2) {
+        GL11.glEnable(GL11.GL_BLEND);
+        GL11.glEnable(GL11.GL_LINE_SMOOTH);
+        drawGradientRect(left, top, right, bottom, color1, color2);
+        GL11.glScalef(0.5f, 0.5f, 0.5f);
+        drawGradientRect(left * 2 - 1, top * 2, left * 2, bottom * 2 - 1, color1, color1);
+        drawGradientRect(left * 2, top * 2 - 1, right * 2, top * 2, color1, color2);
+        drawGradientRect(right * 2, top * 2, right * 2 + 1, bottom * 2 - 1, color1, color2);
+        drawGradientRect(left * 2, bottom * 2 - 1, right * 2, bottom * 2, color1, color2);
+        GL11.glDisable(GL11.GL_LINE_SMOOTH);
+        GL11.glDisable(GL11.GL_BLEND);
+        GL11.glScalef(2F, 2F, 2F);
+    }
+    public static void drawCastomLitium(int startX, int startY, int endX, int endY, int r){
+        drawSmoothGradientRect(startX - r,startY - r,endX + r,endY + r,ColorUtils.getColor(),ColorUtils.getColor2());
+        drawSmoothRect(startX - r,startY - r,endX + r,endY + r,new Color(0x51000000, true).hashCode());
+        drawSmoothGradientRect(startX,startY,endX ,endY,ColorUtils.getColor(),ColorUtils.getColor2());
 
+    }
     public static void drawGradientRectY(final float n, final float n2, final float n3, final float n4, final int n5, final int n6) {
             final float n7 = (n5 >> 24 & 0xFF) / 255.0f;
             final float n8 = (n5 >> 16 & 0xFF) / 255.0f;
