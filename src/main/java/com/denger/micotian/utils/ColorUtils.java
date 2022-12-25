@@ -18,6 +18,12 @@ public class ColorUtils {
     public static Color getColorWithOpacity(Color color, int alpha) {
         return new Color(color.getRed(), color.getGreen(), color.getBlue(), alpha);
     }
+    public static int getColor() {
+        return ColorUtils.TwoColoreffect(new Color(255, 0, 0), new Color(90, 65, 255), Math.abs(System.currentTimeMillis() / 10L) / 100.0 + 0.16999999999999998).getRGB();
+    }
+    public static int getColor2() {
+        return ColorUtils.TwoColoreffect(new Color(90, 65, 255), new Color(255, 0, 0), Math.abs(System.currentTimeMillis() / 10L) / 100.0 + 0.16999999999999998).getRGB();
+    }
 
     public static int rainbow(int delay, long index) {
         double rainbowState = Math.ceil(System.currentTimeMillis() + index + (long)delay) / 15.0;
