@@ -26,7 +26,7 @@ public class WaterMark extends Module {
         String text = Referents.NAME + " Client " + Referents.VERSION  + " I Server: " + (mc.isSingleplayer()? "Localhost" : mc.getCurrentServerData().serverIP+" I "+"Ping: "+ mc.getCurrentServerData().pingToServer ) + " I " + time+ " I " ;
 
         RenderUtils.drawShadowRect(Xpos - 2, Ypos- 1, Xpos + fr.getStringWidth(text)+ 2, Ypos + 6,10);
-        RenderUtils.drawCastomLitium(Xpos - 2, Ypos- 1, Xpos + fr.getStringWidth(text)+ 2, Ypos + 6,2,false);
+        RenderUtils.drawCastomLitium(Xpos - 2, Ypos- 1, Xpos + fr.getStringWidth(text)+ 2, Ypos + 6,2,true);
         fr.drawString(text, Xpos, Ypos, Color.white.getRGB());
     }
 }
