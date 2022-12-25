@@ -210,7 +210,7 @@ public class IntegratedServer extends MinecraftServer
     }
 
     /**
-     * Micotian function called by run() every loop.
+     * Main function called by run() every loop.
      */
     public void tick()
     {

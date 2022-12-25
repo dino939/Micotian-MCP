@@ -3,7 +3,7 @@ package com.denger.micotian.module.modules.render;
 import com.denger.micotian.Micotian;
 import com.denger.micotian.module.Category;
 import com.denger.micotian.module.Module;
-import com.denger.micotian.utils.setting.settings.FloatSetting;
+import com.denger.micotian.module.setting.settings.FloatSetting;
 
 public class Bright extends Module {
     private FloatSetting gamma;

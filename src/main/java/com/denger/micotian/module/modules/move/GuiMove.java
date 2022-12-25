@@ -4,7 +4,7 @@ import com.denger.micotian.Micotian;
 import com.denger.micotian.gui.Gui_Main;
 import com.denger.micotian.module.Category;
 import com.denger.micotian.module.Module;
-import com.denger.micotian.utils.setting.settings.BooleanSetting;
+import com.denger.micotian.module.setting.settings.BooleanSetting;
 import org.lwjgl.input.Keyboard;
 
 public class GuiMove extends Module {

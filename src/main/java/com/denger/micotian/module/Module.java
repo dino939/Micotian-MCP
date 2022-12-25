@@ -14,7 +14,6 @@ public class Module {
     private String name;
     private Category category;
     private int key;
-    public float anim;
     private String display;
     protected Minecraft mc = Minecraft.getMinecraft();
     protected CustomFontRenderer fr = new CustomFontRenderer(FontUtils.getFontFromTTF(new ResourceLocation("fonts/main.ttf"), 19, Font.PLAIN), true, true);

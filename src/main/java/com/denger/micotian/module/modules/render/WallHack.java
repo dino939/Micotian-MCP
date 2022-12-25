@@ -1,7 +1,7 @@
 package com.denger.micotian.module.modules.render;
 
 import com.denger.micotian.Micotian;
-import com.denger.micotian.utils.setting.settings.BooleanSetting;
+import com.denger.micotian.module.setting.settings.BooleanSetting;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.entity.Entity;

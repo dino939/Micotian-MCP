@@ -12,7 +12,7 @@ import net.minecraft.client.settings.GameSettings;
 
 public class GuiLanguage extends GuiScreen
 {
-    /** The parent ClickGui screen */
+    /** The parent Gui screen */
     protected GuiScreen parentScreen;
 
     /** The List GuiSlot object reference. */

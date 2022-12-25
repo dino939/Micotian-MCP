@@ -284,7 +284,7 @@ public class GuiMainMenu extends GuiScreen
     }
 
     /**
-     * Adds Singleplayer and Multiplayer buttons on Micotian Menu for players who have bought the game.
+     * Adds Singleplayer and Multiplayer buttons on Main Menu for players who have bought the game.
      */
     private void addSingleplayerMultiplayerButtons(int p_73969_1_, int p_73969_2_)
     {
@@ -303,7 +303,7 @@ public class GuiMainMenu extends GuiScreen
     }
 
     /**
-     * Adds Demo buttons on Micotian Menu for players who are playing Demo.
+     * Adds Demo buttons on Main Menu for players who are playing Demo.
      */
     private void addDemoButtons(int p_73972_1_, int p_73972_2_)
     {

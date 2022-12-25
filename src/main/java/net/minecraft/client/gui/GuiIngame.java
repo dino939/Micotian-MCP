@@ -1,6 +1,6 @@
 package net.minecraft.client.gui;
 
-import com.denger.micotian.utils.event.events.EventRender2D;
+import com.denger.micotian.Micotian;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
@@ -64,7 +64,6 @@ import optifine.CustomItems;
 import optifine.Reflector;
 import optifine.ReflectorForge;
 import optifine.TextureAnimations;
-import com.denger.micotian.Micotian;
 
 public class GuiIngame extends Gui
 {
@@ -166,7 +165,6 @@ public class GuiIngame extends Gui
 
     public void renderGameOverlay(float partialTicks)
     {
-        new EventRender2D(partialTicks).call();
         ScaledResolution scaledresolution = new ScaledResolution(this.mc);
         int i = scaledresolution.getScaledWidth();
         int j = scaledresolution.getScaledHeight();

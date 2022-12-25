@@ -685,7 +685,7 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IThre
     }
 
     /**
-     * Micotian function called by run() every loop.
+     * Main function called by run() every loop.
      */
     public void tick()
     {
