@@ -9,6 +9,8 @@ import com.denger.micotian.module.Module;
 import com.denger.micotian.utils.RenderUtils;
 
 import java.awt.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class WaterMark extends Module {
     public WaterMark() {
@@ -20,11 +22,11 @@ public class WaterMark extends Module {
         super.onRender2D();
         int Xpos = 7;
         int Ypos = 7;
-        String text = Referents.NAME  + " " + Referents.VERSION;
-        String text2 = "Coded by" + TextFormatting.GREEN +  " Кто?";
-        int wight = fr.getStringWidth(text2);
-        RenderUtils.drawGradientRectY(Xpos, Ypos, Xpos + wight, Ypos + 20, ColorUtils.getColor(), ColorUtils.getColor2());
-        fr.drawString(text, Xpos, Ypos + 5 - (fr.getHeight() / 2), Color.white.getRGB());
-        fr.drawString(text2, Xpos, Ypos + 15 - (fr.getHeight() / 2), Color.white.getRGB());
+        String time = (new SimpleDateFormat("HH:mm")).format(Calendar.getInstance().getTime());
+        String text = Referents.NAME + " Client " + Referents.VERSION  + " I Server: " + (mc.isSingleplayer()? "Localhost" : mc.getCurrentServerData().serverIP+" I "+"Ping: "+ mc.getCurrentServerData().pingToServer ) + " I " + time+ " I " ;
+
+        RenderUtils.drawShadowRect(Xpos - 2, Ypos- 1, Xpos + fr.getStringWidth(text)+ 2, Ypos + 6,10);
+        RenderUtils.drawCastomLitium(Xpos - 2, Ypos- 1, Xpos + fr.getStringWidth(text)+ 2, Ypos + 6,2,false);
+        fr.drawString(text, Xpos, Ypos, Color.white.getRGB());
     }
 }
