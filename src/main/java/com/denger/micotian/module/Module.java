@@ -11,6 +11,8 @@ import java.awt.*;
 
 public class Module {
     private boolean enable;
+
+    public float anim;
     private String name;
     private Category category;
     private int key;

@@ -1,5 +1,6 @@
 package com.denger.micotian.module.modules.render;
 
+import com.denger.micotian.utils.MathUtils;
 import net.minecraft.client.gui.GuiScreen;
 import com.denger.micotian.Micotian;
 import com.denger.micotian.module.Category;
@@ -18,26 +19,30 @@ public class ModuleList extends Module {
     @Override
     public void onRender2D() {
         super.onRender2D();
-        int pos = 7;
+        int posX = 10;
+        int posY = 25;
+        java.util.ArrayList<Module> enabledMods = new java.util.ArrayList<>();
 
-        ArrayList<Module> sort = new ArrayList<>(Micotian.moduleManager.getEnabledModules());
-        sort.sort((module1, module2) -> {
-            if (fr.getStringWidth(module1.getDisplay()) < fr.getStringWidth(module2.getDisplay())) {
-                return 1;
-            } else if (fr.getStringWidth(module1.getDisplay()) > fr.getStringWidth(module2.getDisplay())) {
-                return -1;
+        for (Module module : Micotian.moduleManager.getModules()) {
+            if (module.isEnable()) {
+                module.anim = MathUtils.lerp(module.anim, 1, 0.3f);
+                enabledMods.add(module);
+            } else {
+                module.anim = MathUtils.lerp(module.anim, 10, 0.3f);
             }
-            return 0;
-        });
+        }
 
-        for(Module module : sort){
+
+        enabledMods.sort((module1, module2) -> fr.getStringWidth(module2.getName()) - fr.getStringWidth(module1.getName()));
+
+
+        for(Module module : enabledMods){
             int pos2 = GuiScreen.width - 7;
             int pos3 = pos2 - fr.getStringWidth(module.getDisplay());
-            RenderUtil.drawRect(pos3 - 1, pos, pos2, pos + fr.getHeight() + 3, new Color(30, 30, 30, 150).getRGB());
-            RenderUtils.drawShadowRect(pos3 - 1, pos, pos2, pos + fr.getHeight() + 3, 7);
-
-            fr.drawString(module.getDisplay(), pos3, pos + 1.5, Color.white.getRGB());
-            pos += fr.getHeight() + 4;
+            RenderUtil.drawRect((pos3 - 1)*module.anim, posY,  pos2*module.anim,  posY + fr.getHeight() + 3, new Color(30, 30, 30, 150).getRGB());
+            RenderUtils.drawShadowRect((pos3 - 1)*module.anim,  posY, pos2*module.anim,  posY + fr.getHeight() + 3, 7);
+            fr.drawString(module.getDisplay(), pos3*module.anim,  posY + 1.5, Color.white.getRGB());
+            posY += fr.getHeight() + 4;
         }
     }
 
