@@ -3,7 +3,7 @@ package com.denger.micotian.module.modules.misc;
 import com.denger.micotian.Micotian;
 import com.denger.micotian.module.Category;
 import com.denger.micotian.module.Module;
-import com.denger.micotian.module.setting.settings.FloatSetting;
+import com.denger.micotian.utils.setting.settings.FloatSetting;
 
 /**
  * @author zTerrarxd_

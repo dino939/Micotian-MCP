@@ -600,8 +600,7 @@ public class Minecraft implements IThreadListener, ISnooperInfo
         this.effectRenderer = new ParticleManager(this.world, this.renderEngine);
         this.checkGLError("Post startup");
         this.ingameGUI = new GuiIngame(this);
-
-        Micotian.init();
+        new Micotian().init();
 
         if (this.serverName != null)
         {

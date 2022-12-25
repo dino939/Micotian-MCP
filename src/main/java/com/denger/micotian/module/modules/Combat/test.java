@@ -4,10 +4,10 @@ package com.denger.micotian.module.modules.Combat;
 import com.denger.micotian.Micotian;
 import com.denger.micotian.module.Category;
 import com.denger.micotian.module.Module;
-import com.denger.micotian.module.setting.settings.BooleanSetting;
-import com.denger.micotian.module.setting.settings.ColorSetting;
-import com.denger.micotian.module.setting.settings.FloatSetting;
-import com.denger.micotian.module.setting.settings.ModeSetting;
+import com.denger.micotian.utils.setting.settings.BooleanSetting;
+import com.denger.micotian.utils.setting.settings.ColorSetting;
+import com.denger.micotian.utils.setting.settings.FloatSetting;
+import com.denger.micotian.utils.setting.settings.ModeSetting;
 
 import java.awt.*;
 

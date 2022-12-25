@@ -5,14 +5,14 @@ import com.denger.micotian.Micotian;
 import com.denger.micotian.gui.Gui_Main;
 import com.denger.micotian.module.Category;
 import com.denger.micotian.module.Module;
-import com.denger.micotian.module.setting.settings.BooleanSetting;
+import com.denger.micotian.utils.setting.settings.BooleanSetting;
 
-public class Gui extends Module {
+public class ClickGui extends Module {
     private BooleanSetting blur;
     private BooleanSetting snow;
     private BooleanSetting bind;
-    public Gui() {
-        super("Gui", Category.Render, Keyboard.KEY_RSHIFT);
+    public ClickGui() {
+        super("ClickGui", Category.Render, Keyboard.KEY_RSHIFT);
         Micotian.settingManager.add(bind = new BooleanSetting("Show Binds", this, false));
         Micotian.settingManager.add(snow = new BooleanSetting("Snow Effect", this, false));
         Micotian.settingManager.add(blur = new BooleanSetting("Blur", this, true));

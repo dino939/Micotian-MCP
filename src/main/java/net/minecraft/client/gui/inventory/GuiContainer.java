@@ -35,12 +35,12 @@ public abstract class GuiContainer extends GuiScreen
     public Container inventorySlots;
 
     /**
-     * Starting X position for the Gui. Inconsistent use for Gui backgrounds.
+     * Starting X position for the ClickGui. Inconsistent use for ClickGui backgrounds.
      */
     protected int guiLeft;
 
     /**
-     * Starting Y position for the Gui. Inconsistent use for Gui backgrounds.
+     * Starting Y position for the ClickGui. Inconsistent use for ClickGui backgrounds.
      */
     protected int guiTop;
 

@@ -1,4 +1,4 @@
-package com.denger.micotian.module.setting;
+package com.denger.micotian.utils.setting;
 
 import com.denger.micotian.module.Module;
 

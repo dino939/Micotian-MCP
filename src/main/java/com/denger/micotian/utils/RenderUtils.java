@@ -114,6 +114,45 @@ public final class RenderUtils {
         drawGradientRectx(startX,startY,endX ,endY,ColorUtils.getColor(),ColorUtils.getColor2());
 
     }
+    public static void drawShadowRect(final double n, final double n2, final double n3, final double n4, final int n5, final int n6) {
+        glColor(n6);
+        drawRect(n, n2, n3, n4, n6);
+        drawGradientRect(n, n2 - n5, n3, n2, false, true, n6, ColorUtils.swapAlpha(n6, 0.0f));
+        drawGradientRect(n, n4, n3, n4 + n5, false, false, n6, ColorUtils.swapAlpha(n6, 0.0f));
+        drawSector2(n3, n4, 0, 90, n5, n6);
+        drawSector2(n3, n2, 90, 180, n5, n6);
+        drawSector2(n, n2, 180, 270, n5, n6);
+        drawSector2(n, n4, 270, 360, n5, n6);
+        drawGradientRect(n - n5, n2, n, n4, true, true, n6, ColorUtils.swapAlpha(n6, 0.0f));
+        drawGradientRect(n3, n2, n3 + n5, n4, true, false, n6, ColorUtils.swapAlpha(n6, 0.0f));
+        GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+    }
+
+    public static void drawSector2(final double n, final double n2, final int n3, final int n4, final int n5, final int n6) {
+        GlStateManager.enableBlend();
+        GlStateManager.disableTexture2D();
+        GlStateManager.disableAlpha();
+        GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
+        GlStateManager.shadeModel(7425);
+        GL11.glBegin(6);
+        glColor(n6);
+        GL11.glVertex2d(n, n2);
+        glColor(ColorUtils.swapAlpha(n6, 0.0f));
+        int i = n3;
+        while (i <= n4) {
+            GL11.glVertex2d(n + Math.sin(i * 3.141592653589793 / 180.0) * n5, n2 + Math.cos(i * 3.141592653589793 / 180.0) * n5);
+            final Object o = null;
+            ++i;
+            if (o != null) {
+                return;
+            }
+        }
+        GL11.glEnd();
+        GlStateManager.disableBlend();
+        GlStateManager.enableTexture2D();
+        GlStateManager.enableAlpha();
+        GlStateManager.shadeModel(7424);
+    }
 
     public static void drawColorBox(AxisAlignedBB axisalignedbb, float red, float green, float blue, float alpha) {
         Tessellator ts = Tessellator.getInstance();

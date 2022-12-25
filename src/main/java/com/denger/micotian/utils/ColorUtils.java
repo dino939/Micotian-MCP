@@ -14,6 +14,9 @@ public class ColorUtils {
     public static int getColor(Color color) {
         return ColorUtils.getColor(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
     }
+    public static int swapAlpha(final int n, final float n2) {
+        return getColor(n >> 16 & 0xFF, n >> 8 & 0xFF, n & 0xFF, (int)n2);
+    }
 
     public static Color getColorWithOpacity(Color color, int alpha) {
         return new Color(color.getRed(), color.getGreen(), color.getBlue(), alpha);

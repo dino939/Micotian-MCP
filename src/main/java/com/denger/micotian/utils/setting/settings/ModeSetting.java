@@ -1,7 +1,7 @@
-package com.denger.micotian.module.setting.settings;
+package com.denger.micotian.utils.setting.settings;
 
 import com.denger.micotian.module.Module;
-import com.denger.micotian.module.setting.Setting;
+import com.denger.micotian.utils.setting.Setting;
 
 public class ModeSetting extends Setting {
     private String val;
