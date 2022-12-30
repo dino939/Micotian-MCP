@@ -1,9 +1,12 @@
 package com.denger.micotian.module;
 
-import com.denger.micotian.module.modules.misc.*;
-import com.denger.micotian.module.modules.render.*;
-import com.denger.micotian.module.modules.Combat.*;
-import com.denger.micotian.module.modules.move.*;
+
+import com.denger.micotian.module.hud.*;
+import com.denger.micotian.module.misc.*;
+import com.denger.micotian.module.render.*;
+import com.denger.micotian.module.Combat.*;
+import com.denger.micotian.module.move.*;
+
 
 import java.util.ArrayList;
 
@@ -13,33 +16,29 @@ public class ModuleManager {
 
     public void init(){
         modules.add(new test());
-        modules.add(new Gui());
-        modules.add(new ESP());
+        modules.add(new ClickGui());
         modules.add(new AutoSprint());
-        modules.add(new StorageESP());
         modules.add(new AntiBot());
         modules.add(new GuiMove());
         modules.add(new Tracers());
-        modules.add(new NameTags());
         modules.add(new ModuleList());
         modules.add(new WaterMark());
         modules.add(new Coords());
-        modules.add(new ArrmorHud());
-        modules.add(new Xray());
-        modules.add(new AutoMine());
+        //modules.add(new ArrmorHud());
         modules.add(new Notifications());
         modules.add(new FreeCam());
         modules.add(new MCF());
         modules.add(new ChinaHat());
         modules.add(new Bright());
-        modules.add(new Glowing());
-        modules.add(new WallHack());
         modules.add(new NoHurtCam());
         modules.add(new NameProtect());
         modules.add(new Panic());
         modules.add(new VClip());
-        modules.add(new Particalse());
         modules.add(new Timer());
+        modules.add(new Strafe());
+        modules.add(new TargetHud());
+        modules.add(new HudEditor());
+        modules.add(new NameTags());
 
     }
 

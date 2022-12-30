@@ -18,6 +18,9 @@ public class ColorUtils {
     public static Color getColorWithOpacity(Color color, int alpha) {
         return new Color(color.getRed(), color.getGreen(), color.getBlue(), alpha);
     }
+    public static int swapAlpha(final int n, final float n2) {
+        return getColor(n >> 16 & 0xFF, n >> 8 & 0xFF, n & 0xFF, (int)n2);
+    }
     public static int getColor() {
         return ColorUtils.TwoColoreffect(new Color(255, 0, 0), new Color(90, 65, 255), Math.abs(System.currentTimeMillis() / 10L) / 100.0 + 0.16999999999999998).getRGB();
     }

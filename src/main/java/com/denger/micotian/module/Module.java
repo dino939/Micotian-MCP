@@ -1,5 +1,6 @@
 package com.denger.micotian.module;
 
+import com.denger.micotian.utils.MathUtils;
 import com.denger.micotian.utils.font.CustomFontRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
@@ -19,7 +20,6 @@ public class Module {
     private String display;
     protected Minecraft mc = Minecraft.getMinecraft();
     protected CustomFontRenderer fr = new CustomFontRenderer(FontUtils.getFontFromTTF(new ResourceLocation("fonts/main.ttf"), 19, Font.PLAIN), true, true);
-    protected ScaledResolution sr = new ScaledResolution(mc);
 
     public Module(String name, Category category, int key){
         this.name = name;

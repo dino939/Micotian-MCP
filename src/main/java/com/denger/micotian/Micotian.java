@@ -1,12 +1,16 @@
 package com.denger.micotian;
 
+
+import com.denger.micotian.ClickGui.ClickGui;
+import com.denger.micotian.ClickGui.comp.HudEditor;
 import com.denger.micotian.module.Module;
 import com.denger.micotian.module.ModuleManager;
-import com.denger.micotian.module.setting.SettingManager;
+import com.denger.micotian.utils.setting.SettingManager;
 
 
 public class Micotian {
-
+    public static ClickGui ClickGui;
+    public static HudEditor HudEditor;
     public static ModuleManager moduleManager;
     public static SettingManager settingManager;
     public static boolean enable = true;
@@ -43,6 +47,8 @@ public class Micotian {
         settingManager = new SettingManager();
         moduleManager = new ModuleManager();
         moduleManager.init();
+        ClickGui = new ClickGui();
+        HudEditor = new HudEditor();
 
     }
 

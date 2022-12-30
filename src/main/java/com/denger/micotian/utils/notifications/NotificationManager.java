@@ -1,5 +1,6 @@
 package com.denger.micotian.utils.notifications;
 
+import com.denger.micotian.utils.ColorUtils;
 import com.denger.micotian.utils.RenderUtils;
 import com.denger.micotian.utils.font.CustomFontRenderer;
 import net.minecraft.client.gui.GuiScreen;
@@ -20,11 +21,11 @@ public class NotificationManager {
     }
 
     public static void draw(Notification notification, int i){
-        int x = GuiScreen.width - 100;
+        int x = GuiScreen.width - 120;
         int y =  (int) ((GuiScreen.height - 10) - (i * 15));
-            RenderUtils.drawShadowRect(x, y, x + 100, y + 10, 5);
-            icon.drawString("K", x, y + 1, Color.green.getRGB());
-            fr.drawString(notification.getText() + " - " + notification.getMessage(), x + icon.getStringWidth("H"), y+5 - (fr.getHeight() / 2), Color.white.getRGB());
+        RenderUtils.drawCastomLitium(x, y, x + 150, y ,5);
+            icon.drawString("K", x, y -2.7f, Color.green.getRGB());
+            fr.drawString(notification.getText() + " - " + notification.getMessage(), x + icon.getStringWidth("H"), y  - (fr.getHeight() / 2), Color.white.getRGB());
 
     }
 

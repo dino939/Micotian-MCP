@@ -27,11 +27,37 @@ public final class RenderUtils {
         GL11.glColor4d((double)((float)color.getRed() / 255.0F), (double)((float)color.getGreen() / 255.0F), (double)((float)color.getBlue() / 255.0F), (double)((float)alpha / 255.0F));
 
     }
+    public static void disableSmoothLine() {
+        GL11.glEnable(3553);
+        GL11.glEnable(2929);
+        GL11.glDisable(3042);
+        GL11.glEnable(3008);
+        GL11.glDepthMask(true);
+        GL11.glCullFace(1029);
+        GL11.glDisable(2848);
+        GL11.glHint(3154, 4352);
+        GL11.glHint(3155, 4352);
+    }
+
+    public static void enableSmoothLine(final float n) {
+        GL11.glDisable(3008);
+        GL11.glEnable(3042);
+        GL11.glBlendFunc(770, 771);
+        GL11.glDisable(3553);
+        GL11.glDisable(2929);
+        GL11.glDepthMask(false);
+        GL11.glEnable(2884);
+        GL11.glEnable(2848);
+        GL11.glHint(3154, 4354);
+        GL11.glHint(3155, 4354);
+        GL11.glLineWidth(n);
+    }
     public static void drawRoundedRect(double x, double y, double x1, double y1, int borderC, int insideC) {
         RenderUtil.drawRect(x + 0.5, y, x1 - 0.5, y + 0.5, insideC);
         RenderUtil.drawRect(x + 0.5, y1 - 0.5, x1 - 0.5, y1, insideC);
         RenderUtil.drawRect(x, y + 0.5, x1, y1 - 0.5, insideC);
     }
+
     public static void drawGradientSideways(final double n, final double n2, final double n3, final double n4, final int n5, final int n6) {
         final float n7 = (n5 >> 24 & 0xFF) / 255.0f;
         final float n8 = (n5 >> 16 & 0xFF) / 255.0f;
@@ -119,6 +145,16 @@ public final class RenderUtils {
         drawSmoothRect(startX - r,startY - r,endX + r,endY + r,new Color(0x51000000, true).hashCode());
         drawSmoothGradientRect(startX,startY,endX ,endY,ColorUtils.getColor(),ColorUtils.getColor2());
 
+
+    }
+    public static void drawCastomLitium(int startX, int startY, int endX, int endY, int r,int rad){
+        drawSmoothGradientRect(startX - r,startY - r,endX + r,endY + r,ColorUtils.getColor(),ColorUtils.getColor2());
+        drawSmoothRect(startX - r,startY - r,endX + r,endY + r,new Color(0x51000000, true).hashCode());
+        drawSmoothGradientRect(startX,startY,endX ,endY,ColorUtils.getColor(),ColorUtils.getColor2());
+        drawSmoothRect(startX + r,startY + r,endX - r,endY - r, new Color(0xD2000000, true).hashCode());
+
+
+
     }
     public static void drawGradientRectY(final float n, final float n2, final float n3, final float n4, final int n5, final int n6) {
             final float n7 = (n5 >> 24 & 0xFF) / 255.0f;
@@ -146,6 +182,16 @@ public final class RenderUtils {
             GlStateManager.disableBlend();
             GlStateManager.enableAlpha();
             GlStateManager.enableTexture2D();
+    }
+    public static void drawImagePro(final ResourceLocation resourceLocation, final int n, final int n2, final int n3, final int n4, final int n5) {
+        GlStateManager.disableDepth();
+        GlStateManager.enableBlend();
+        OpenGlHelper.glBlendFunc(770, 771, 1, 0);
+        glColor(n5);
+        mc.getTextureManager().bindTexture(resourceLocation);
+        Gui.drawModalRectWithCustomSizedTexture(n, n2, 0.0f, 0.0f, n3, n4, (float)n3, (float)n4);
+        GlStateManager.disableBlend();
+        GlStateManager.enableDepth();
     }
     public static void drawColorBox(AxisAlignedBB axisalignedbb, float red, float green, float blue, float alpha) {
         Tessellator ts = Tessellator.getInstance();
@@ -560,6 +606,7 @@ public final class RenderUtils {
         drawRect(left + (borderIncludedInBounds ? borderWidth : 0.0), top + (borderIncludedInBounds ? borderWidth : 0.0), right - (borderIncludedInBounds ? borderWidth : 0.0), bottom - (borderIncludedInBounds ? borderWidth : 0.0), insideColor);
     }
 
+
     public static void drawImage(ResourceLocation image, int x, int y, int width, int height, int color) {
         GlStateManager.disableDepth();
         GlStateManager.enableBlend();
@@ -599,5 +646,44 @@ public final class RenderUtils {
         GL11.glEnable(GL11.GL_DEPTH_TEST);
         GL11.glEnable(GL11.GL_TEXTURE_2D);
         GL11.glPopMatrix();
+    }
+    public static void drawSector2(final double n, final double n2, final int n3, final int n4, final int n5, final int n6) {
+        GlStateManager.enableBlend();
+        GlStateManager.disableTexture2D();
+        GlStateManager.disableAlpha();
+        GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
+        GlStateManager.shadeModel(7425);
+        GL11.glBegin(6);
+        glColor(n6);
+        GL11.glVertex2d(n, n2);
+        glColor(ColorUtils.swapAlpha(n6, 0.0f));
+        int i = n3;
+        while (i <= n4) {
+            GL11.glVertex2d(n + Math.sin(i * 3.141592653589793 / 180.0) * n5, n2 + Math.cos(i * 3.141592653589793 / 180.0) * n5);
+            final Object o = null;
+            ++i;
+            if (o != null) {
+                return;
+            }
+        }
+        GL11.glEnd();
+        GlStateManager.disableBlend();
+        GlStateManager.enableTexture2D();
+        GlStateManager.enableAlpha();
+        GlStateManager.shadeModel(7424);
+    }
+
+    public static void drawShadowRect(final double n, final double n2, final double n3, final double n4, final int n5, final int n6) {
+        glColor(n6);
+        drawRect(n, n2, n3, n4, n6);
+        drawGradientRect(n, n2 - n5, n3, n2, false, true, n6, ColorUtils.swapAlpha(n6, 0.0f));
+        drawGradientRect(n, n4, n3, n4 + n5, false, false, n6, ColorUtils.swapAlpha(n6, 0.0f));
+        drawSector2(n3, n4, 0, 90, n5, n6);
+        drawSector2(n3, n2, 90, 180, n5, n6);
+        drawSector2(n, n2, 180, 270, n5, n6);
+        drawSector2(n, n4, 270, 360, n5, n6);
+        drawGradientRect(n - n5, n2, n, n4, true, true, n6, ColorUtils.swapAlpha(n6, 0.0f));
+        drawGradientRect(n3, n2, n3 + n5, n4, true, false, n6, ColorUtils.swapAlpha(n6, 0.0f));
+        GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
     }
 }
